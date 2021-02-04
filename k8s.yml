@@ -1,0 +1,27 @@
+---
+- name: CES k8s environment ready
+  hosts: all
+  tags: k8s_env
+  gather_facts: false
+  become: yes
+  become_user: root
+  roles:
+    - { role: k8s_env }
+
+- name: CES k8s master node install
+  hosts: all
+  tags: k8s_master_install
+  gather_facts: false
+  become: yes
+  become_user: root
+  roles:
+    - { role: k8s_master_install }
+
+- name: CES k8s worker node join
+  hosts: all
+  tags: k8s_worker_join
+  gather_facts: false
+  become: yes
+  become_user: root
+  roles:
+    - { role: k8s_worker_join }
