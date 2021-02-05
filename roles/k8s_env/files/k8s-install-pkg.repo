@@ -1,0 +1,7 @@
+[kubernetes]
+name=Kubernetes
+baseurl=http://172.16.99.240:8081/repository/k8s-proxy/yum/repos/kubernetes-el7-x86_64/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=http://172.16.99.240:8081/repository/k8s-proxy/yum/doc/yum-key.gpg http://172.16.99.240:8081/repository/k8s-proxy/yum/doc/rpm-package-key.gpg

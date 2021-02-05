@@ -1,0 +1,14 @@
+- name: pull images
+  shell: "{{ item }}"
+  with_items:
+    - "docker pull 172.16.99.240:5000/kube-apiserver:v{{ version }}"
+    - "docker pull 172.16.99.240:5000/kube-controller-manager:v{{ version }}"
+    - "docker pull 172.16.99.240:5000/kube-proxy:v{{ version }}"
+    - "docker pull 172.16.99.240:5000/kube-scheduler:v{{ version }}"
+    - docker pull 172.16.99.240:5000/pause
+    - docker pull 172.16.99.240:5000/etcd:3.4.13-0
+    - docker pull 172.16.99.240:5000/coredns:1.7.0
+    - docker pull 172.16.99.240:5000/coreos/flannel:v0.13.1-rc1
+    - docker pull 172.16.99.240:5000/calico/node:v3.2.4
+    - docker pull 172.16.99.240:5000/calico/kube-controllers:v3.2.4
+    - docker pull 172.16.99.240:5000/calico/cni:v3.2.4

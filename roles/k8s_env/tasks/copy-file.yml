@@ -1,0 +1,12 @@
+- name: copy repo
+  copy:
+    src: "{{ item }}"
+    dest: /etc/yum.repos.d/
+  with_items:
+    - k8s-install-pkg.repo
+    - normal.repo
+
+- name: copy daemon
+  copy:
+    src: daemon.json
+    dest: /etc/docker/
