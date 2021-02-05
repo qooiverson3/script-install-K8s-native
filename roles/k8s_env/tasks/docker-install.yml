@@ -1,4 +1,5 @@
 ---
+
 - name: add repo
   copy:
     src: 'install.repo'
@@ -24,6 +25,3 @@
     src: 'docker-storage-setup'
     dest: '/etc/sysconfig/'
     mode: '0755'
-
-- name: rm repo
-  shell: 'rm -rf /etc/yum.repos.d/*.repo'
