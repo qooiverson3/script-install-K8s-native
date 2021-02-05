@@ -1,0 +1,29 @@
+---
+- name: add repo
+  copy:
+    src: 'install.repo'
+    dest: '/etc/yum.repos.d/'
+
+- name: yum clean
+  shell: 'yum clean all'
+
+- name: yum docker install
+  yum: name=docker-1.13.1-58.git87f2fab.el7.x86_64
+
+- name: yum docker install
+  yum: name=python-setuptools state=latest
+
+- name: docker-network install
+  copy:
+    src: 'docker-network'
+    dest: '/etc/sysconfig/'
+    mode: '0755'
+
+- name: docker-storage-setup install
+  copy:
+    src: 'docker-storage-setup'
+    dest: '/etc/sysconfig/'
+    mode: '0755'
+
+- name: rm repo
+  shell: 'rm -rf /etc/yum.repos.d/*.repo'

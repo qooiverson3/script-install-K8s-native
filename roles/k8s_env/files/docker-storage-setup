@@ -1,0 +1,4 @@
+STORAGE_DRIVER=devicemapper
+CONTAINER_THINPOOL=docker-pool
+STORAGE_DRIVER='overlay2'
+GROWPART='true'
