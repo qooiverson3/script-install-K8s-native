@@ -1,5 +1,14 @@
 ---
-- name: CES k8s environment ready
+- name: Deploy virtual machine
+  hosts: all
+  tags:
+    - deploy_vm
+  gather_facts: false
+  connection: local
+  roles:
+    - { role: deploy_vm }
+
+- name: CES k8s environment
   hosts: all
   tags: k8s_env
   gather_facts: false
