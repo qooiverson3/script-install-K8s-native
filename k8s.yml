@@ -5,7 +5,7 @@
     - deploy_vm
   gather_facts: false
   connection: local
-  #vars_files: defaults/main.yml
+  vars_files: defaults/main.yml
   roles:
     - { role: deploy_vm }
 
