@@ -1,2 +1,28 @@
 ---
 # defaults file for deploy_vm
+vcenter_ip: 192.168.102.160
+vcenter_id: administrator@vsphere.local
+T2V_vm_deploy_list:
+  - T2V_vm_name: JK-Ansible_102.202
+    T2V_vm_folder: /Datacenter/vm
+    T2V_datacenter_name: Datacenter
+    T2V_esxi_ip: 192.168.102.62
+    T2V_guest_id: rhel7_64Guest
+    T2V_vm_hostname: Ansible01
+    T2V_vm_domain: rd.apes.com.tw
+    T2V_vm_dns_server: 1.1.1.1
+    T2V_vm_dns_dns_suffix: rd.apes.com.tw
+    datastore: C2_SZ_SAS_RD3_flashtodb_nodejs_test
+    T2V_vm_disk:
+      - size_gb: 50
+        type: thin
+        datastore: FS1-TERRY_DS1
+    T2V_memory_mb: 2048
+    T2V_num_cpus: 2
+    T2V_scsi: paravirtual
+    T2V_vm_networks:
+      - name: "VM Network"
+        type: dhcp
+        start_connected: yes
+    T2V_template_name: rhel
+    T2V_wait_for_ip_address: yes
