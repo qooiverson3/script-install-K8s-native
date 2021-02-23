@@ -3,7 +3,7 @@
 - name: Create a VM from a template
   vmware_guest:
     hostname: '10.213.10.51'
-    username: 'ces-deploy'
+    username: 'ces-deploy@vsphere.local'
     password: "{{ vc_password }}"
     validate_certs: no
     folder: "{{ item.T2V_vm_folder }}"
