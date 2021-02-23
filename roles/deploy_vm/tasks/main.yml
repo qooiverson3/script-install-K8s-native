@@ -1,0 +1,33 @@
+---
+# tasks file for deploy_vm
+- name: Create a VM from a template
+  vmware_guest:
+    hostname: "{{ vcenter_ip }}"
+    username: "{{ vcenter_id }}"
+    password: '{{ vcenter_password }}'
+    validate_certs: no
+    folder: "{{ T2V_vm_folder }}"
+    name: "{{ T2V_vm_name }}"
+    state: poweredon
+    datacenter: "{{ T2V_datacenter_name }}"
+    esxi_hostname: "{{ T2V_esxi_ip }}"
+    guest_id: "{{ T2V_guest_id }}"
+    customization:
+      hostname: "{{ T2V_vm_hostname }}"
+    hardware:
+      memory_mb: "{{ T2V_memory_mb }}"
+      num_cpus: "{{ T2V_num_cpus }}"
+      scsi: "{{ T2V_scsi }}"
+    networks: "{{ T2V_vm_networks }}"
+    template: "{{ T2V_template_name }}"
+    wait_for_ip_address: true
+  with_items: "{{ T2V_vm_deploy_list }}"
+  delegate_to: localhost
+  register: deploy
+
+- set_fact:
+    hw_uuid_vm: "{{ deploy.results[0].instance.hw_product_uuid }}"   ## get vm hw_uuid
+    vm_name: "{{ deploy.results[0].item.T2V_vm_name }}" ## get vm_name
+
+- debug:
+    msg: "{{ deploy }}"
