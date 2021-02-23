@@ -1,2 +1,2 @@
 ### Deploy VM
-`ansible-playbook -i 'localhost,' k8s.yml --tag=deploy_vm --extra-vars "@example/vars.json"`
+`ansible-playbook -i 'localhost,' k8s.yml --tag=deploy_vm --extra-vars "@example/vars.json" --ask-vault-pass`
