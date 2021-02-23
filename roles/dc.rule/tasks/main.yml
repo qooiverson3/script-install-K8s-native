@@ -1,0 +1,7 @@
+---
+# tasks file for dc.rule
+- include_tasks: main-sys-admin.yml
+- include_tasks: history.yml
+- include_tasks: hosts-allow.yml
+- include_tasks: update-sudo.yml
+- include_tasks: sshd-root.yml
