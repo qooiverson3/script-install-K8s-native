@@ -1,0 +1,9 @@
+---
+  - name: 'cp hosts.allow'
+    copy:
+      src: '/home/wesley_lai/ansible/roles/dc.rule/files/hosts.allow.dc'
+      dest: '/etc/hosts.allow'
+  - name: 'cp hosts.deny'
+    copy:
+      src: '/home/wesley_lai/ansible/roles/dc.rule/files/hosts.deny'
+      dest: '/etc/hosts.deny'

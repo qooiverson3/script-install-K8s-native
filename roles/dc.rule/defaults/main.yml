@@ -1,0 +1,29 @@
+---
+# defaults file for dc.rule
+  user_state3: 'present'
+  user_name3: 'sys-admin'
+  user_group_name3: '{{ user_name3 }}'
+  user_groups: []
+  user_home_dir3: '/home/{{ user_name3 }}'
+  user_authorized_keys3:
+         - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCj6DeP1nm5u+vjjhRch0ckaENi+/0RtTIBcrTZzhgtjIr4q51Dra5xKI9qyx73F2x9QU7vn7oNo8fRDEi9kzHKpbZJ6z2okiEbnhnrqANYXsBbXbHwGwdpHsw2x2Ic6j27/nTbuBV5hUc9P5e5MqQq+cD/ggzQn8ddo9U06Up+t7hDUnol8S4zjuQqn4TwTYIOzRJpdWOT1ACaJvGP6M4Ngmb/HbiVySVml2Ox2VBXx5Q9GYjcmDtAMSrpgrCkZLK/gMgw31WUsRxd5tfClF0l0bc5t/yoD/kFbt2RrehEKXr1cVyyk2ThQ3d/Foh5CWhoSJ4HJbfDBWmnK07xv2xl sys-admin@sys-border.sz'
+         - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCz9WduhL30tPsF3LiLgDNH9ogex/BVd/hgSYGKwhfN0nrmMIJQfPIDicCDC340w/RaL4DySsXlzJM50sdJR/R2qvKx6RQ4Lm0SMBBjcX3eN75dbMbR8luWvZ5OkAcmV9ptzD1wL14HD0baJ8acrjHBgANdJn1QKNJYftyx69MjAgyjSVauLnh2TkjSUuedJdB93xm1RAb6W/yNb3oiRUzoXcVyo0sXnCrUJ5ELtK8fDmaQGJl+utFO2SbNYFaR/RonGrlN3Yi/NIW/mgmKqMB87FkzpKUQB5aEKKElghuK/K1zunM9yYaePRr58i1ETPb8/Fgojd17cW4CXUpfsmRJ sys-admin@ces-web02.dc.prod'
+
+  user_state4: 'present'
+  user_name4: 'op-admin'
+  user_group_name4: '{{ user_name4 }}'
+  user_groups: []
+  user_home_dir4: '/home/{{ user_name4 }}'
+  user_authorized_keys4:
+         - 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA8xF3J5x8L7DEzcOMjUY7wRcKtma69JzTBYSLgYS9FLOjsqJgAapSTmixmYgEAWPrte4Ah/4zdqynCzSSpjMJDnEhSN1gfWdufu6roO85EdF9JvSRzHbXCgcojF3okFCpwdbrCqGYuARdKHicmLZZ1/Fgj9wSrs25lzjnEEu8kilBkSoEagzG1qUnMQam4cr2IpIsWlXyjqfRxQpnQKROXVO9HwRXPZls7MCDaHed8R9vp+/pnJL55FDMxPAxChElN1XhFuGXHEa6YLOgbXvbkaGp2qwaemKWAl8St7sRpqt2tn155XHnyHBk9XSLJJOhV2dRUsaMk6Tiy/vHE+MOSw== op-admin@border.sytnet.com'
+         - 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEA6UXwOW/nJdcUUhKU9U4BRsW+pa4bRouY+d+IfF2slXA1qep4slQn0d8imDqEDLcdHe1kdrtAljDHrFdw++Q9ZM0FRbpIDgLYYMwyEIdq5A1pcNGrpqM5B9vgosHkPny//9Gcf5BC3WXagiiwkKXYsaCjnKMfhS2uf7dGxB4BaXE= root@border.sytnet.com'
+         - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/zwNSSneZRBZOs2CUzvv1oPRRBmRDuGGwns+cldWYN1bGuRQVnv6Yms+SKEHBo6Q4jT+4A/+F2YZCco1AF/Ou/oAKGRS0A5aQUKt8gQl3+zMbffm/d/O+pQZHUjDygoguQ4OiM3HHyAOhZmjloGbPo/RF48kFY3G5e1CCkkermHK0JNeWmQ5L4BhwLB2Nl81SsSr4LWLvCBfgWotgrRCaJYAloeiUG1wjBwHD//XFvMNeg2nADIMXnaHq+qFUVjSK+9APjnA0LpetGhPpCvAlfZm2Ki2oYPXwbFDf0xoeSLTM89Jg3trOz+4jqe7hZdsIIQcEQVqZmhI1NchkYDbz op-admin@border2.sytnet.com'
+
+  change_user1: root
+  passwd1: $1$gegI6He/$q/ds9e0jzzjf55vkOzM1N0
+
+  change_user4: op-admin
+  passwd4: $1$YWHqRB7c$C/CGN6AW4St13taCdC3sn.
+
+  change_user3: sys-admin
+  passwd3: $1$8c/tJtpf$WYZ.ox5NFzjxYBQ3i4.eH1

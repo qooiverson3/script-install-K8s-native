@@ -1,0 +1,32 @@
+---
+  - name: make /var/log/history/historylog directory in
+    file:
+      path: /var/log/history
+      state: 'directory'
+      owner: 'root'
+      group: 'root'
+
+
+  - name: touch historylog
+    copy:
+      src: 'historylog'
+      dest: '/var/log/history/'
+
+
+  - name: config hitoryroate
+    copy:
+      src: 'history'
+      dest: '/etc/logrotate.d/'
+      mode: 333
+  - name: chmod historylog
+    shell: chmod 333 /var/log/history/historylog
+
+
+  - name: configure /etc/bashrc
+    lineinfile:
+      dest: /etc/bashrc
+      backup: yes
+      line: export PROMPT_COMMAND='{ date "+[ %Y%m%d %H:%M:%S `whoami` ] `history 1 | { read x cmd; echo "$cmd"; }`"; } >> /var/log/history/historylog'
+
+  - name: 'test logrotate'
+    command: /usr/sbin/logrotate -f /etc/logrotate.d/history

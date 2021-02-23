@@ -1,0 +1,144 @@
+---
+  - name: create group {{ user_group_name3 }}
+    group:
+      name: '{{ user_group_name3 }}'
+      state: 'present'
+    when: 'user_state3 == "present"'
+
+  - name: create user {{ user_name3 }} (or remove if user_state3 == absent)
+    user:
+      state: '{{ user_state3 }}'
+      name: '{{ user_name3 }}'
+      group: '{{ user_group_name3 }}'
+      home: '{{ user_home_dir3 }}'
+      shell: '/bin/bash'
+      generate_ssh_key: '{{ user_generate_key }}'
+      ssh_key_passphrase: '{{ user_key_passphrase }}'
+
+
+  - name: create group {{ user_group_name4 }}
+    group:
+      name: '{{ user_group_name4 }}'
+      state: 'present'
+    when: 'user_state4 == "present"'
+
+  - name: create user {{ user_name4 }} (or remove if user_state4 == absent)
+    user:
+      state: '{{ user_state4 }}'
+      name: '{{ user_name4 }}'
+      group: '{{ user_group_name4 }}'
+      home: '{{ user_home_dir4 }}'
+      shell: '/bin/bash'
+      generate_ssh_key: '{{ user_generate_key }}'
+      ssh_key_passphrase: '{{ user_key_passphrase }}'
+
+  - name: make .ssh directory in {{ user_home_dir1 }}
+    file:
+      path: '{{ user_home_dir1 }}/.ssh'
+      state: 'directory'
+      mode: '0700'
+      owner: '{{ user_name1 }}'
+      group: '{{ user_group_name1 }}'
+    when: 'user_state3 == "present"'
+
+  - name: add keys to {{ user_home_dir1 }}/.ssh/authorized_keys
+    lineinfile:
+      create: 'yes'
+      mode: '0600'
+      owner: '{{ user_name1 }}'
+      group: '{{ user_group_name1 }}'
+      path: "{{ user_home_dir1 }}/.ssh/authorized_keys"
+      line: '{{ item }}'
+    with_items: '{{ user_authorized_keys1 }}'
+    when: 'user_state1 == "present"'
+
+  - name: make .ssh directory in {{ user_home_dir3 }}
+    file:
+      path: '{{ user_home_dir3 }}/.ssh'
+      state: 'directory'
+      mode: '0700'
+      owner: '{{ user_name3 }}'
+      group: '{{ user_group_name3 }}'
+    when: 'user_state3 == "present"'
+
+  - name: add keys to {{ user_home_dir3 }}/.ssh/authorized_keys
+    lineinfile:
+      create: 'yes'
+      mode: '0600'
+      owner: '{{ user_name3 }}'
+      group: '{{ user_group_name3 }}'
+      path: "{{ user_home_dir3 }}/.ssh/authorized_keys"
+      line: '{{ item }}'
+    with_items: '{{ user_authorized_keys3 }}'
+    when: 'user_state3 == "present"'
+
+  - name: make .ssh directory in {{ user_home_dir4 }}
+    file:
+      path: '{{ user_home_dir4 }}/.ssh'
+      state: 'directory'
+      mode: '0700'
+      owner: '{{ user_name4 }}'
+      group: '{{ user_group_name4 }}'
+    when: 'user_state4 == "present"'
+
+  - name: add keys to {{ user_home_dir4 }}/.ssh/authorized_keys
+    lineinfile:
+      create: 'yes'
+      mode: '0600'
+      owner: '{{ user_name4 }}'
+      group: '{{ user_group_name4 }}'
+      path: "{{ user_home_dir4 }}/.ssh/authorized_keys"
+      line: '{{ item }}'
+    with_items: '{{ user_authorized_keys4 }}'
+    when: 'user_state4 == "present"'
+
+  - name: add visudo file
+    copy:
+      src: 'sudoers'
+      dest: '/etc/sudoers'
+    when: 'user_state == "present"'
+
+  - name: add keys to /.ssh/authorized_keys
+    lineinfile:
+      create: 'yes'
+      mode: '0600'
+      owner: cs-admin
+      group: cs-admin
+      path: "/home/cs-admin/.ssh/authorized_keys"
+      line: ' ssh-dss AAAAB3NzaC1kc3MAAACBAMNBFopJO0GHf06B7CjfHu28kUbT5S25mW63aht38HIrQeijVxRVF39cu/gG3NjRQ6oqFR2zTZFt0NnZ0UftON3cOF/OTdx7vPQ5snvIN+n44536J5NNSuVE6vDM+7q3XxsnN2c6Ie1YuCKMfb9+q1IkEtFdcMNXqYUpbW+qCWtBAAAAFQCPSm8YshjBqHfVu28Tj0W47lBuCwAAAIBtSzBPqJBTYbwotXdcgaFcqG9i1NCpWzkVedUm6nfx3Ne+dryInLheRB0FsEbrU5PlUgcqezxmSxKHt2EMUtzqjk+6l4znh8EhLZWoEq6XAhUdYrMZonW5KNac33efJMLu+1cW9XMQHkhZI1HS+LcjnVSlFz+oa18arO+GdfsE/wAAAIAjtJi1kezwU/dUdQL3rETnQswAJfWlyR+SiZZD+VbWauHgJKUFntxWqvWBzLmBEYJLtXt+ZRTIM0iqkpbhPvMsC15neMTvfbzMixD7C4jrY5jEye7DA6tkmh1FQlHijV6GNyUs4+YdIVo3QQP1ztU19W1mqu6Vf7KXQubLerSz9w== cs-admin@border.code.prod'
+
+  - name: changepasswod sys-admin
+    user: name={{ change_user3 }} password={{ passwd3 }} update_password=always
+
+  - name: changepasswod op-admin
+    user: name={{ change_user4 }} password={{ passwd4 }} update_password=always
+
+  - name: copy loginsight.tar
+    copy:
+      src: 'loginsight_install.tar'
+      dest: '/tmp/'
+
+  - name: copy loginsight.sh
+    copy:
+      src: 'auto_install_loginsight.sh'
+      dest: '/tmp/'
+
+  - name: Unarchive a file loginsight
+    unarchive:
+      src: /tmp/loginsight_install.tar
+      dest: /tmp/
+      remote_src: yes
+
+  - name: "run loginsight script"
+    shell: sh /tmp/auto_install_loginsight.sh
+
+  - name: "rm loginsight /tmp"
+    shell: 'rm -rf /tmp/logins*'
+
+  - name: rm repo
+    shell: 'rm -rf /etc/yum.repos.d/*.repo'
+
+  - name: configure audit
+    copy:
+      src: 'audit.rules'
+      dest: '/etc/audit/rules.d/audit.rules'

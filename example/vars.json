@@ -1,7 +1,4 @@
 {
-    "vcenter_ip": "10.213.10.51",
-    "vcenter_id": "administrator@vsphere.local",
-    "vcenter_password": "P@ssw0rd",
     "T2V_vm_deploy_list":[
         {
             "T2V_vm_name":"test0223.dc.prod",
