@@ -2,9 +2,15 @@
 # tasks file for deploy_vm
 - name: Create a VM from a template
   vmware_guest:
-    hostname: "{{ vcenter_ip }}"
-    username: "{{ vcenter_id }}"
-    password: "{{ vcenter_password }}"
+    hostname: '10.213.10.51'
+    username: 'ces-deploy'
+    password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          31616435316130333661353032613135383236396165633635383962393536653737663166356664
+          6662643363653161616138356536353530656635636530330a313365613135636163336261326130
+          34636330393039353831303065653339336136626361373237623935626338316233326632323762
+          3464393161646638330a326161336365663937646165326132323362353938396165653366303361
+          3531
     validate_certs: no
     folder: "{{ item.T2V_vm_folder }}"
     name: "{{ item.T2V_vm_name }}"
