@@ -4,22 +4,22 @@
   vmware_guest:
     hostname: "{{ vcenter_ip }}"
     username: "{{ vcenter_id }}"
-    password: '{{ vcenter_password }}'
+    password: "{{ vcenter_password }}"
     validate_certs: no
-    folder: "{{ T2V_vm_folder }}"
-    name: "{{ T2V_vm_name }}"
+    folder: "{{ item.T2V_vm_folder }}"
+    name: "{{ item.T2V_vm_name }}"
     state: poweredon
-    datacenter: "{{ T2V_datacenter_name }}"
-    esxi_hostname: "{{ T2V_esxi_ip }}"
-    guest_id: "{{ T2V_guest_id }}"
+    datacenter: "{{ item.T2V_datacenter_name }}"
+    esxi_hostname: "{{ item.T2V_esxi_ip }}"
+    guest_id: "{{ item.T2V_guest_id }}"
     customization:
-      hostname: "{{ T2V_vm_hostname }}"
+      hostname: "{{ item.T2V_vm_hostname }}"
     hardware:
-      memory_mb: "{{ T2V_memory_mb }}"
-      num_cpus: "{{ T2V_num_cpus }}"
-      scsi: "{{ T2V_scsi }}"
-    networks: "{{ T2V_vm_networks }}"
-    template: "{{ T2V_template_name }}"
+      memory_mb: "{{ item.T2V_memory_mb }}"
+      num_cpus: "{{ item.T2V_num_cpus }}"
+      scsi: "{{ item.T2V_scsi }}"
+    networks: "{{ item.T2V_vm_networks }}"
+    template: "{{ item.T2V_template_name }}"
     wait_for_ip_address: true
   with_items: "{{ T2V_vm_deploy_list }}"
   delegate_to: localhost
