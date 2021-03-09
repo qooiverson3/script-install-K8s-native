@@ -30,4 +30,4 @@
     vm_name: "{{ deploy.results[0].item.T2V_vm_name }}" ## get vm_name
 
 - debug:
-    msg: "{{ deploy }}"
+    msg: "{{ hw_uuid_vm }}"
