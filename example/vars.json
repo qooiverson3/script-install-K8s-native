@@ -53,60 +53,6 @@
             ],
             "T2V_template_name":"template7.4-v13-ces-dctest",
             "ansible_host":"172.16.20.22"
-        },
-        {
-            "T2V_vm_name":"test0224.dc.prod",
-            "T2V_vm_folder":"/SZB-DataCenter/Automation-platform/vm",
-            "T2V_datacenter_name":"Automation-platform",
-            "T2V_esxi_ip":"10.213.8.44",
-            "T2V_guest_id":"rhel7_64Guest",
-            "T2V_vm_hostname":"test0224",
-            "T2V_vm_disk":[
-                {
-                    "size_gb":"20",
-                    "type":"thin",
-                    "datastore":"C2_SZ_SAS_RD3_flashtodb_nodejs_test"
-                },
-                {
-                    "size_gb":"2",
-                    "type":"thin",
-                    "datastore":"C2_SZ_SAS_RD3_flashtodb_nodejs_test"
-                },
-                {
-                    "size_gb":"16",
-                    "type":"thin",
-                    "datastore":"C2_SZ_SAS_RD3_flashtodb_nodejs_test"
-                },
-                {
-                    "size_gb":"40",
-                    "type":"thin",
-                    "datastore":"C2_SZ_SAS_RD3_flashtodb_nodejs_test"
-                },
-                {
-                    "size_gb":"20",
-                    "type":"thin",
-                    "datastore":"C2_SZ_SAS_RD3_flashtodb_nodejs_test"
-                }
-            ],
-            "T2V_memory_mb":"16384",
-            "T2V_num_cpus":"8",
-            "T2V_scsi":"paravirtual",
-            "T2V_vm_networks":[
-                {
-                    "name":"vLan16_172.16",
-                    "type":"static",
-                    "ip":"172.16.20.23",
-                    "netmask":"255.255.0.0"
-                },
-                {
-                    "name":"vLan21_172.21",
-                    "type":"static",
-                    "ip":"172.21.20.23",
-                    "netmask":"255.255.0.0"
-                }
-            ],
-            "T2V_template_name":"template7.4-v13-ces-dctest",
-            "ansible_host":"172.16.20.23"
         }
     ]
 }
