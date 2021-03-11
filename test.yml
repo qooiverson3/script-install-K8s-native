@@ -1,0 +1,10 @@
+---
+- name: test1234
+  hosts: all
+  tags:
+    - test123
+  gather_facts: false
+  connection: local
+  #vars_files: defaults/main.yml
+  roles:
+    - { role: my_test }
