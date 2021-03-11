@@ -9,7 +9,7 @@
   roles:
     - { role: deploy_vm }
 
-- name: CES k8s environment
+- name: k8s environment
   hosts: all
   tags: k8s_env
   gather_facts: false
@@ -18,7 +18,7 @@
   roles:
     - { role: k8s_env }
 
-- name: CES k8s master node install
+- name: k8s master node install
   hosts: all
   tags: k8s_master_install
   gather_facts: false
@@ -27,7 +27,7 @@
   roles:
     - { role: k8s_master_install }
 
-- name: CES k8s worker node join
+- name: k8s worker node join
   hosts: all
   tags: k8s_worker_join
   gather_facts: false
