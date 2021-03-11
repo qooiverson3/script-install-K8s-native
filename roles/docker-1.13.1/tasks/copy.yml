@@ -1,0 +1,21 @@
+---
+- name: copy role files
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "{{ copy_role_file_dest_path }}"
+  with_items: "{{ copy_role_file_list }}"
+  register: copy_role
+
+- name: copy local files
+  copy:
+    src: "{{ local_file_path }}/{{ item }}"
+    dest: "{{ dest_file_path }}"
+  with_items: "{{ copy_local_file_list }}"
+  register: copy_local
+
+- debug:
+    msg:
+      - "{{ copy_role }}"
+      - "{{ copy_local }}"
+
+

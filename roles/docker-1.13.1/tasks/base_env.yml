@@ -1,0 +1,76 @@
+---
+- name: Update the config file
+  lineinfile:
+    path: "{{ item.path }}"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items: "{{ conf_modify }}"
+  register: config_file
+
+- name: Add multiple repositories into the repo.d
+  yum_repository:
+    name: "{{ item.name }}"
+    description: "{{ item.name }}"
+    file: "{{ item.file }}"
+    baseurl: "{{ item.baseurl }}"
+    gpgcheck: "{{ item.gpgcheck }}"
+    enabled: "{{ item.enabled }}"
+  with_items: "{{ yum_repo }}"
+  register: yum_repo_setting
+
+- name: Ensure packages or dependencies installed
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items: "{{ env_yum_packages }}"
+  register: yum_status
+
+- name: systemd setting
+  systemd:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    enabled: "{{ item.enabled }}"
+  with_items: "{{ systemd_setting }}"
+  ignore_errors: yes
+  register: systemd_setting
+
+- name: resource limited
+  sysctl: 
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+  with_items: "{{ sysctl_setting }}"
+  register: sysctl_setting
+
+- name: PAM limits setting
+  pam_limits: 
+    domain: "{{ item.domain }}"
+    limit_type: "{{ item.type }}"
+    limit_item: "{{ item.item }}"
+    value: "{{ item.value }}"
+  with_items: "{{ hardening_ulimit }}"
+  register: ulimit_setting
+
+- name: copy check script
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/tmp/"
+    owner: root
+    group: root
+    mode: 700
+    force: yes
+  with_items: "{{ copy_check_script_rule_list }}"
+  register:  copy_check_script_rule_list
+
+- name : clear history
+  shell: cat /dev/null > ~/.bash_history && history -c
+
+
+- debug:
+    msg:
+      - "{{ config_file }}"
+      - "{{ yum_repo_setting }}"
+      - "{{ yum_status }}"
+      - "{{ systemd_setting }}"
+      - "{{ sysctl_setting }}"
+      - "{{ ulimit_setting }}"
+      - "{{ copy_check_script_rule_list }}"
