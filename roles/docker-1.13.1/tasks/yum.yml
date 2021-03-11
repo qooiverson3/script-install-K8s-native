@@ -1,0 +1,12 @@
+---
+- name: Ensure packages or dependencies installed.
+  yum:
+    name: "{{ item }}"
+    state: "{{ packages_state }}"
+  with_items: "{{ yum_packages }}"
+  register: yum_status
+
+- debug:
+    msg: "{{ yum_status }}"
+
+
