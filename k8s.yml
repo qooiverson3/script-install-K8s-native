@@ -36,9 +36,9 @@
   roles:
     - { role: k8s_worker_join }
 
-# - hosts: all
-#   tags:
-#     - docker
-#   gather_facts: false
-#   roles:
-#     - { role: docker }
+- hosts: all
+  tags:
+    - docker-1.13.1
+  gather_facts: false
+  roles:
+    - { role: docker-1.13.1 }

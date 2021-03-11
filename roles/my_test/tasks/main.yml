@@ -1,0 +1,8 @@
+---
+# tasks file for my_test
+- name: Hello
+  command: echo "hello"
+  register: result
+  
+- debug:
+    msg: "{{ result }}"
