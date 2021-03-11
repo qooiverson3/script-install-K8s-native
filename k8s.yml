@@ -36,7 +36,8 @@
   roles:
     - { role: k8s_worker_join }
 
-- hosts: all
+- name: Install docker v1.13.1
+  hosts: all
   tags:
     - docker-1.13.1
   gather_facts: false
