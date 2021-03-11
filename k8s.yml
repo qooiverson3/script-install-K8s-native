@@ -38,6 +38,8 @@
 
 - name: Install docker v1.13.1
   hosts: all
+  become: yes
+  become_user: root
   tags:
     - docker-1.13.1
   gather_facts: false
