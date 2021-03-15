@@ -36,3 +36,9 @@
   roles:
     - { role: k8s_worker_join }
 
+- name: master init
+  hosts: all
+  tags: master:_init
+  gather_facts: false
+  roles:
+    - { role: k8s_master_init }

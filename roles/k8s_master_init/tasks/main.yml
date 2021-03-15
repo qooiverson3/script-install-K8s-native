@@ -1,0 +1,9 @@
+---
+# tasks file for k8s_master_init
+- name: init master
+  shell: 
+    - "kubeadm init \
+     --pod-network-cidr={{ cidr }}/16 \
+     --apiserver-advertise-address={{ master_node }} \ 
+     --image-repository=172.16.99.240:5000 --control-plane-endpoint {{ api_svr }} \
+     --upload-certs"
