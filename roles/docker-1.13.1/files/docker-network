@@ -1,1 +1,0 @@
-DOCKER_NETWORK_OPTIONS='--bip=192.168.200.1/24  --ipv6=false'

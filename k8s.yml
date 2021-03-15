@@ -36,12 +36,3 @@
   roles:
     - { role: k8s_worker_join }
 
-- name: Install docker v1.13.1
-  hosts: all
-  become: yes
-  become_user: root
-  tags:
-    - docker-1.13.1
-  gather_facts: false
-  roles:
-    - { role: docker-1.13.1 }
