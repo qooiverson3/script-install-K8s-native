@@ -1,3 +1,4 @@
+---
 - name: init master
   shell: 
     - "kubeadm init \
