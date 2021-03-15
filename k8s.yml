@@ -38,7 +38,7 @@
 
 - name: master init
   hosts: all
-  tags: master:_init
+  tags: master_init
   gather_facts: false
   roles:
     - { role: k8s_master_init }
