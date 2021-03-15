@@ -1,5 +1,3 @@
----
-# tasks file for k8s_master_init
 - name: init master
   shell: 
     - "kubeadm init \
