@@ -1,18 +1,4 @@
 ---
-- name: docker-compose install
-  copy:
-    src: 'docker-compose'
-    dest: '/usr/local/bin/'
-    mode: '0755'
-
-- name: ln -s docker-compse
-  shell: 'ln -s /usr/local/bin/docker-compose /usr/bin/.'
-
-# - name: add repo
-#   copy:
-#     src: 'extra.repo'
-#     dest: '/etc/yum.repos.d/'
-
 - name: yum clean
   shell: 'yum clean all'
 
