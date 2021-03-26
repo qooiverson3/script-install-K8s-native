@@ -1,11 +1,11 @@
----
+---]=
 - name: yum clean
   shell: 'yum clean all'
 
 - name: yum docker install
   yum: name=docker-1.13.1-58.git87f2fab.el7.x86_64
 
-- name: yum docker install
+- name: yum py-setuptools
   yum: name=python-setuptools state=latest
 
 - name: docker-network install
