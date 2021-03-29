@@ -1,4 +1,3 @@
----]=
 - name: yum clean
   shell: 'yum clean all'
 
