@@ -43,10 +43,11 @@
     - { role: k8s_master_init }
 
 - name: terminal install
-  hosts: terminal-hosts
+  hosts: all
   tags: terminal
   become: yes
   become_user: root
   gather_facts: false
+  connection: local
   roles:
     - { role: terminal }

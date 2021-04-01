@@ -1,4 +1,4 @@
 - name: create directory
   file: 
-    path: "/home/sys-admin/k8s_config/{{ dept }}/{{ clusterID }}/.kube"
+    path: "/home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube"
     state: directory
