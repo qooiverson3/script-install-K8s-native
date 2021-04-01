@@ -6,20 +6,20 @@
     username: "{{ vc_username }}"
     password: "{{ vc_password }}"
     validate_certs: no
-    folder: "{{ item.T2V_vm_folder }}"
-    name: "{{ item.T2V_vm_name }}"
+    folder: "{{ item.VMFolder }}"
+    name: "{{ item.VMName }}"
     state: poweredon
-    datacenter: "{{ item.T2V_datacenter_name }}"
-    esxi_hostname: "{{ item.T2V_esxi_ip }}"
-    guest_id: "{{ item.T2V_guest_id }}"
+    datacenter: "{{ item.DataCenterName }}"
+    esxi_hostname: "{{ item.Esxi }}"
+    guest_id: "{{ item.GuestID }}"
     customization:
-      hostname: "{{ item.T2V_vm_hostname }}"
+      hostname: "{{ item.VMHostname }}"
     hardware:
-      memory_mb: "{{ item.T2V_memory_mb }}"
-      num_cpus: "{{ item.T2V_num_cpus }}"
-      scsi: "{{ item.T2V_scsi }}"
-    networks: "{{ item.T2V_vm_networks }}"
-    template: "{{ item.T2V_template_name }}"
+      memory_mb: "{{ item.Memory }}"
+      num_cpus: "{{ item.CPU }}"
+      scsi: "{{ item.ScsiType }}"
+    networks: "{{ item.Networks }}"
+    template: "{{ item.Template }}"
     wait_for_ip_address: true
   with_items: "{{ T2V_vm_deploy_list }}"
   delegate_to: localhost
@@ -27,7 +27,6 @@
 
 - set_fact:
     hw_uuid_vm: "{{ deploy.results[0].instance.hw_product_uuid }}"   ## get vm hw_uuid
-    vm_name: "{{ deploy.results[0].item.T2V_vm_name }}" ## get vm_name
 
 - debug:
     msg: "{{ hw_uuid_vm }}"
