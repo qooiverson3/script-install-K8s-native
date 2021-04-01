@@ -62,4 +62,4 @@
   tags: deploy_terminal
   gather_facts: false
   roles:
-    - { deploy_terminal_container }
+    - { role: deploy_terminal_container }
