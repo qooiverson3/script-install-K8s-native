@@ -1,0 +1,3 @@
+---
+# tasks file for terminal
+- include_tasks: create_directroy.yml
