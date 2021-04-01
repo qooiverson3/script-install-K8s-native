@@ -46,5 +46,6 @@
   hosts: all
   tags: terminal
   gather_facts: false
+  connection: local
   roles:
     - { role: terminal }
