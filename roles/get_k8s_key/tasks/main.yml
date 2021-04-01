@@ -3,4 +3,4 @@
 - name: copy
   fetch:
     src: /etc/kubernetes/admin.conf
-    dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/
+    dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/config
