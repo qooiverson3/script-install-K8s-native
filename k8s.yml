@@ -35,10 +35,16 @@
   roles:
     - { role: k8s_worker_join }
 
-## 初始化 master
 - name: master init
   hosts: all
   tags: master_init
   gather_facts: false
   roles:
     - { role: k8s_master_init }
+
+- name: terminal install
+  hosts: all
+  tags: terminal
+  gather_facts: false
+  roles:
+    - { role: terminal }
