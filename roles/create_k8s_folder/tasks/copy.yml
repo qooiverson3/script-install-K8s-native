@@ -1,0 +1,4 @@
+- name: copy file
+  copy:
+    src: .bashrc
+    dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/
