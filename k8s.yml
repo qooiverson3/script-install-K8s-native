@@ -43,7 +43,7 @@
     - { role: k8s_master_init }
 
 - name: terminal install
-  hosts: all
+  hosts: terminal-hosts
   tags: terminal
   gather_facts: false
   roles:
