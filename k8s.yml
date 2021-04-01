@@ -60,6 +60,8 @@
 - name: deploy web terminal container
   hosts: terminal
   tags: deploy_terminal
+  become: yes
+  become_user: root
   gather_facts: false
   roles:
     - { role: deploy_terminal_container }
