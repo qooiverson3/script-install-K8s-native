@@ -1,8 +1,6 @@
 ---
 # tasks file for get_k8s_key
 - name: copy
-  copy:
+  fetch:
     src: /etc/kubernetes/admin.conf
-    remote_src: true
-    #dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/
-    dest: /tmp
+    dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/
