@@ -49,3 +49,10 @@
   connection: local
   roles:
     - { role: terminal }
+
+- name: get K8s cert
+  hosts: all
+  tags: get_k8s_key
+  gather_facts: false
+  roles:
+    - { role: get_k8s_key }
