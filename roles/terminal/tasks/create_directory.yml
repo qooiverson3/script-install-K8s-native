@@ -2,3 +2,4 @@
   file: 
     path: "/home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube"
     state: directory
+    delegate_to: local

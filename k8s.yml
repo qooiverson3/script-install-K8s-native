@@ -48,6 +48,5 @@
   become: yes
   become_user: root
   gather_facts: false
-  connection: local
   roles:
     - { role: terminal }
