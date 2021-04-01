@@ -42,13 +42,13 @@
   roles:
     - { role: k8s_master_init }
 
-- name: terminal install
+- name: create K8s folder
   hosts: all
-  tags: terminal
+  tags: create_k8s_folder
   gather_facts: false
   connection: local
   roles:
-    - { role: terminal }
+    - { role: create_k8s_folder }
 
 - name: get K8s cert
   hosts: all
@@ -56,3 +56,10 @@
   gather_facts: false
   roles:
     - { role: get_k8s_key }
+
+- name: deploy web terminal container
+  hosts: terminal
+  tags: deploy_terminal
+  gather_facts: false
+  roles:
+    - { deploy_terminal_container }
