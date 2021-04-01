@@ -4,4 +4,5 @@
   copy:
     src: /etc/kubernetes/admin.conf
     remote_src: true
-    dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/
+    #dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/
+    dest: /tmp
