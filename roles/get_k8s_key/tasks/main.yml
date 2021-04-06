@@ -14,4 +14,4 @@
 
 - name: debug permision
   debug: 
-    msg: "{{ permission }}"
+    msg: "{{ permission.stdout }}"
