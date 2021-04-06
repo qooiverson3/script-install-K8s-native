@@ -10,5 +10,15 @@
     regexp: '10.210.0.0/16'
     line: "              value: \"{{ cidr }}/16\""
 
+- name: create .kube directory
+  file:
+    path: /root/.kube
+    state: directory
+
+- name: copy kube config
+  copy:
+    src: /etc/kubernetes/admin.conf
+    dest: 
+
 - name: apply calico
   shell: "kubectl apply -f /tmp/calico.yml"
