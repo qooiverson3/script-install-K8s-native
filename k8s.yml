@@ -53,7 +53,7 @@
 - name: get K8s cert
   hosts: all
   tags: get_k8s_key
-  gather_facts: false
+  #gather_facts: false
   become: yes
   become_user: root
   roles:
