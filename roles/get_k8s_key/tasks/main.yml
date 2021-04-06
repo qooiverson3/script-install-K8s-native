@@ -12,5 +12,5 @@
     mode: 0644
   register: permission
 
-- debug: 
+  debug: 
     msg: "{{ permission }}"
