@@ -19,6 +19,8 @@
   copy:
     src: /etc/kubernetes/admin.conf
     dest: /root/.kube/config
+    remote_src: true
+    
 
 - name: apply calico
   shell: "kubectl apply -f /tmp/calico.yml"
