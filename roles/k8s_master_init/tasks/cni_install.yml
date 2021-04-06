@@ -18,7 +18,7 @@
 - name: copy kube config
   copy:
     src: /etc/kubernetes/admin.conf
-    dest: 
+    dest: /root/.kube/config
 
 - name: apply calico
   shell: "kubectl apply -f /tmp/calico.yml"
