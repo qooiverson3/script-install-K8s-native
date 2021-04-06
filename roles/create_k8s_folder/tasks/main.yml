@@ -1,3 +1,4 @@
 ---
 # tasks file for create_k8s_folder
 - include_tasks: create_directory.yml
+- include_tasks: copy.yml
