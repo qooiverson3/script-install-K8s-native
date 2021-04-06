@@ -7,11 +7,8 @@
     flat: true
 
 - name: permission
-  # file:
-  #   dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/config
-  #   owner: root
-  #   group: root
-  #   mode: 0644
-
-  shell: "chmod 0644 /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/config"
+  file:
+    dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/config
+    mode: 0644
+  delegate_to: local
 
