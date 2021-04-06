@@ -8,7 +8,7 @@
   lineinfile:
     dest: /tmp/calico.yml
     regexp: '10.210.0.0/16'
-    line: "{{ cidr }}/16"
+    line: "              value: \"{{ cidr }}/16\""
 
 - name: apply calico
   shell: "kubectl apply -f /tmp/calico.yml"
