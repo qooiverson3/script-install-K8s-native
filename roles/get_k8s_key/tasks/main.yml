@@ -5,14 +5,11 @@
     src: /etc/kubernetes/admin.conf
     dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/config
     flat: true
-  register: test123
-
-- name: debug permision
-  debug: 
-    msg: "{{ test123 }}"
 
 - name: permission
   file:
-    path: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/config
+    dest: /home/sys-admin/docker/ansible/k8s_config/{{ dept }}/{{ clusterID }}/.kube/config
+    owner: root
+    group: root
     mode: 0644
 
