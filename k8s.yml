@@ -54,6 +54,8 @@
   hosts: all
   tags: get_k8s_key
   gather_facts: false
+  become: yes
+  become_user: root
   roles:
     - { role: get_k8s_key }
 
