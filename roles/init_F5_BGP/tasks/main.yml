@@ -1,3 +1,4 @@
 ---
 # tasks file for init_F5_BGP
 - include_tasks: copy.yml
+- include_tasks: init_bgp.yml

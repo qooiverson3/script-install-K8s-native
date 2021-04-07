@@ -1,7 +1,7 @@
 ---
 - name: copy file
   copy:
-    src: {{ items }}
+    src: {{ item }}
     dest: /tmp/
   with_items:
     - bgp-peer.yml
