@@ -2,7 +2,6 @@
 - include_tasks: copy-file.yml
 - include_tasks: docker-install.yml
 - include_tasks: install.yml
-- include_tasks: docker-install.yml
 
 
 
