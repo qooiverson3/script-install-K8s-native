@@ -17,6 +17,13 @@
     - kubectl
     - kubeadm
 
+- name: swap off
+  shell: "{{ item }}"
+  with_items:
+    - echo 0 > /proc/sys/vm/swappiness
+    - swapoff -a
+    - sed -i '/^[^ ]\+ \+swap \+/s/^/#/' /etc/fstab
+
 - name: manage services
   service:
     name: "{{ item }}"
@@ -26,9 +33,5 @@
     - docker
     - kubelet
 
-- name: swap off
-  shell: "{{ item }}"
-  with_items:
-    - echo 0 > /proc/sys/vm/swappiness
-    - swapoff -a
-    - sed -i '/^[^ ]\+ \+swap \+/s/^/#/' /etc/fstab
+
+
