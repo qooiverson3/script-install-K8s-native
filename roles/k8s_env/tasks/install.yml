@@ -7,6 +7,13 @@
     - socat
     - conntrack
 
+- name: swap off
+  shell: "{{ item }}"
+  with_items:
+    - echo 0 > /proc/sys/vm/swappiness
+    - swapoff -a
+    - sed -i '/^[^ ]\+ \+swap \+/s/^/#/' /etc/fstab
+    
 - name: install k8s_install_pkg
   yum:
     name:
@@ -16,13 +23,6 @@
     - kubelet
     - kubectl
     - kubeadm
-
-- name: swap off
-  shell: "{{ item }}"
-  with_items:
-    - echo 0 > /proc/sys/vm/swappiness
-    - swapoff -a
-    - sed -i '/^[^ ]\+ \+swap \+/s/^/#/' /etc/fstab
 
 - name: manage services
   service:
