@@ -67,3 +67,10 @@
   gather_facts: false
   roles:
     - { role: deploy_terminal_container }
+
+- name: init F5 BGP peer
+  hosts: all
+  tags: init_f5_bgp
+  gather_facts: false
+  roles:
+    - { role: init_F5_BGP }

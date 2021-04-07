@@ -1,0 +1,27 @@
+---
+apiVersion: projectcalico.org/v3
+kind: BGPConfiguration
+metadata:
+  name: default
+spec:
+  logSeverityScreen: Info
+  nodeToNodeMeshEnabled: false
+  asNumber: 63400
+  
+---
+apiVersion: projectcalico.org/v3
+kind: BGPPeer
+metadata:
+  name: bigip87-bgppeer-global
+spec:
+  peerIP: 172.16.88.248
+  asNumber: 63400
+
+---
+apiVersion: projectcalico.org/v3
+kind: BGPPeer
+metadata:
+  name: bigip88-bgppeer-global
+spec:
+  peerIP: 172.16.88.249
+  asNumber: 63400

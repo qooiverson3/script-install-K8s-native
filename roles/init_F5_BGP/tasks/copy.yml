@@ -1,0 +1,8 @@
+---
+- name: copy file
+  copy:
+    src: {{ items }}
+    dest: /tmp/
+  with_items:
+    - bgp-peer.yml
+    - calicoctl

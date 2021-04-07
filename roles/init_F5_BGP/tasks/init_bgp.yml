@@ -1,0 +1,3 @@
+---
+- name: init F5 BGP peer
+  shell: ./calicoctl -f bgp-peer.yml

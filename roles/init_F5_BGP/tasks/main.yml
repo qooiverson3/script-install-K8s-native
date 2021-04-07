@@ -1,0 +1,3 @@
+---
+# tasks file for init_F5_BGP
+- include_tasks: copy.yml
