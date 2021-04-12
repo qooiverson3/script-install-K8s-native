@@ -1,4 +1,4 @@
 ---
 # tasks file for deploy_terminal_container
 - name: deploy terminal
-  shell: "docker run -d --name={{ dept }}-{{ clusterID }} -v /home/sys-admin/k8s_config/{{ dept }}/{{ clusterID }}:/home/ces -p 9{{ clusterID }}:8080 -h {{ dept }}-{{ clusterID }} ces-terminal:v5 ces:{{ pass }} bash"
+  shell: "docker run -d --name={{ dept }}-{{ clusterID }} -v /home/sys-admin/k8s_config/{{ dept }}/{{ clusterID }}:/home/ces -p 9{{ clusterID }}:8080 -h {{ dept }}-{{ clusterID }} ces-terminal:v6 ces:{{ pass }} bash"
