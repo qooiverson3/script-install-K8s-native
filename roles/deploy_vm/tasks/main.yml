@@ -1,6 +1,12 @@
 ---
+
+- name: update VM step                        ## insert vm hw_uuid into DB
+  shell: mysql -u ces -p'P@ssw0rd' -h 10.10.0.10 -e 'update CESK8s.nodes set step = 0 where hostname REGEXP "{{ item.VMName }}"'
+  with_items: "{{ T2V_vm_deploy_list }}"
+
 # tasks file for deploy_vm
 - name: Create a VM from a template
+
   vmware_guest:
     hostname: "{{ vc_hostname }}"
     username: "{{ vc_username }}"
@@ -27,6 +33,11 @@
 
 - set_fact:
     hw_uuid_vm: "{{ deploy.results[0].instance.hw_product_uuid }}"   ## get vm hw_uuid
+    vm_name: "{{ deploy.results[0].item.VMName }}"
 
 - debug:
     msg: "{{ hw_uuid_vm }}"
+
+- name: update VM's UUID & progress step                        ## insert vm hw_uuid into DB
+  shell: mysql -u ces -p'P@ssw0rd' -h 10.10.0.10 -e 'update CESK8s.nodes set uuid = "{{ hw_uuid_vm }}",step = 1 where hostname REGEXP "{{ vm_name }}"'
+  when: hw_uuid_vm != ''

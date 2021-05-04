@@ -1,33 +1,13 @@
 {
     "T2V_vm_deploy_list":[
         {
-            "VMName":"worker-03261.dc.prod",
+            "VMName":"master-8ti7rdfa.dc.prod",
             "VMFolder":"/SZB-DataCenter/Automation-platform/vm",
             "DataCenterName":"Automation-platform",
-            "Esxi":"10.213.8.44",
+            "Esxi":"10.213.20.159",
             "GuestID":"rhel7_64Guest",
-            "VMHostname":"worker-03261",
+            "VMHostname":"master-8ti7rdfa",
             "T2V_vm_disk":[
-                {
-                    "size_gb":"20",
-                    "type":"thin",
-                    "datastore":"C2_SZ_SAS_RD3_flashtodb_nodejs_test"
-                },
-                {
-                    "size_gb":"2",
-                    "type":"thin",
-                    "datastore":"C2_SZ_SAS_RD3_flashtodb_nodejs_test"
-                },
-                {
-                    "size_gb":"16",
-                    "type":"thin",
-                    "datastore":"C2_SZ_SAS_RD3_flashtodb_nodejs_test"
-                },
-                {
-                    "size_gb":"40",
-                    "type":"thin",
-                    "datastore":"C2_SZ_SAS_RD3_flashtodb_nodejs_test"
-                },
                 {
                     "size_gb":"20",
                     "type":"thin",
@@ -41,30 +21,18 @@
                 {
                     "name":"vLan16_172.16",
                     "type":"static",
-                    "ip":"172.16.20.37",
+                    "ip":"172.16.20.38",
                     "netmask":"255.255.0.0"
                 },
                 {
                     "name":"vLan21_172.21",
                     "type":"static",
-                    "ip":"172.21.20.37",
+                    "ip":"172.21.20.38",
                     "netmask":"255.255.0.0"
-                },
-                {
-                    "name":"vLan949_10.200.108",
-                    "type":"static",
-                    "ip":"10.200.108.43",
-                    "netmask":"255.255.248.0"
-                },
-                {
-                    "name":"vLan68_10.209.0",
-                    "type":"static",
-                    "ip":"10.209.7.48",
-                    "netmask":"255.255.248.0"
                 }
             ],
-            "Template":"template7.4-v13-ces-dc",
-            "ansible_host":"172.16.20.37"
+            "Template":"template7.4-v13-ces-dctest",
+            "ansible_host":"172.16.20.38"
         }
     ]
 }
